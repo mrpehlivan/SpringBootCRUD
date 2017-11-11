@@ -1,0 +1,113 @@
+{
+	"variables": [],
+	"info": {
+		"name": "developer",
+		"_postman_id": "68d5114f-0758-7ae5-4c00-885f91613223",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "insertDeveloper",
+			"request": {
+				"url": "http://localhost:8081/developer/add",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\" : \"Arif\",\n\t\"lastName\" : \"Pehlivan\",\n\t\"email\" : \"m.arifpehlivan@gmail.com\",\n\t\"skill\" : \"Java\",\n\t\"phoneNumber\" : \"5112223344\"\n\n}"
+				},
+				"description": "insertDeveloper"
+			},
+			"response": []
+		},
+		{
+			"name": "findByEmail",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8081/developer/findByEmail?email=m.arifpehlivan@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"developer",
+						"findByEmail"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "m.arifpehlivan@gmail.com",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "findByEmail"
+			},
+			"response": []
+		},
+		{
+			"name": "updateEmailOrPhoneNumber",
+			"request": {
+				"url": "http://localhost:8081/developer/update",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"m.arifpehlivan@gmail.com\",\n\t\"skill\" : \"Java\",\n\t\"phoneNumber\" : \"5112223344\"\n}"
+				},
+				"description": "updateEmailOrPhoneNumber"
+			},
+			"response": []
+		},
+		{
+			"name": "deleteByEmail",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8081/developer/delete?email=m.arifpehlivan@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"developer",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "m.arifpehlivan@gmail.com",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": "deleteByEmail"
+			},
+			"response": []
+		}
+	]
+}

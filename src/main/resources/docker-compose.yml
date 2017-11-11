@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  mrpehlivan:
+    image: postgres:9.6-alpine
+    container_name: 'mrpehlivan-db'
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - 15432:5432
+    volumes:
+      - mrpehlivan-db-data:/var/lib/postgresql/data
+      - ./initdb:/docker-entrypoint-initdb.d
+
+volumes:
+  mrpehlivan-db-data:
+    driver: local

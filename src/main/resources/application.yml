@@ -1,0 +1,19 @@
+server:
+  port: 8081
+
+spring:
+  profiles:
+    active: dev
+
+  datasource:
+    dataSourceClassName: org.postgresql.ds.PGSimpleDataSource
+    url: jdbc:postgresql://localhost:15432/postgres
+    username: postgres
+    password: postgres
+
+  jpa:
+    hibernate:
+      dialect: org.hibernate.dialect.PostgresDialect
+      ddl-auto: none
+      show_sql: true
+    #generate-ddl: true
