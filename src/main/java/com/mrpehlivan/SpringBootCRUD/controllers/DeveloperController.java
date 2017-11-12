@@ -2,8 +2,8 @@ package com.mrpehlivan.SpringBootCRUD.controllers;
 
 import com.mrpehlivan.SpringBootCRUD.dto.DeveloperRequest;
 import com.mrpehlivan.SpringBootCRUD.dto.DeveloperResponse;
+import com.mrpehlivan.SpringBootCRUD.exception.MissingArgumentException;
 import com.mrpehlivan.SpringBootCRUD.services.DeveloperService;
-import com.sun.javaws.exceptions.MissingFieldException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -25,27 +25,27 @@ public class DeveloperController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/add")
-    public void insertDeveloper(@RequestBody DeveloperRequest request) throws MissingFieldException {
+    public boolean insertDeveloper(@RequestBody DeveloperRequest request) throws MissingArgumentException {
         if (StringUtils.isEmpty(request.getEmail())) {
-            throw new MissingFieldException(request.getEmail(), "email can not be null");
+            throw new MissingArgumentException("failure","400", "Email can not be null");
         }
-        service.insert(request);
+        return service.insert(request);
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/delete", params = "email")
-    public void deleteDeveloper(@RequestParam String email) throws MissingFieldException {
+    public boolean deleteDeveloper(@RequestParam String email) throws MissingArgumentException {
         if (StringUtils.isEmpty(email)) {
-            throw new MissingFieldException(email, "email can not be null");
+            throw new MissingArgumentException("failure","400", "Email can not be null");
         }
-        service.delete(email);
+        return service.delete(email);
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/update")
-    public void updateDeveloper(@RequestBody DeveloperRequest request) throws MissingFieldException {
+    public boolean updateDeveloper(@RequestBody DeveloperRequest request) throws MissingArgumentException {
         if (StringUtils.isEmpty(request.getEmail())) {
-            throw new MissingFieldException(request.getEmail(), "email can not be null");
+            throw new MissingArgumentException("failure","400", "Email can not be null");
         }
-        service.update(request);
+        return service.update(request);
     }
 
 

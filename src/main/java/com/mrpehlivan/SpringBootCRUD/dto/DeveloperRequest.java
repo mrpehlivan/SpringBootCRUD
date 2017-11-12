@@ -1,7 +1,5 @@
 package com.mrpehlivan.SpringBootCRUD.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.io.Serializable;
 
 
@@ -9,17 +7,13 @@ public class DeveloperRequest implements Serializable {
 
     private String name;
 
-    @JsonProperty("lastName")
     private String lastName;
 
     private String email;
 
     private String skill;
 
-    @JsonProperty("phoneNumber")
     private String phoneNumber;
-
-    private boolean active;
 
     public String getName() {
         return name;
@@ -59,13 +53,5 @@ public class DeveloperRequest implements Serializable {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
     }
 }

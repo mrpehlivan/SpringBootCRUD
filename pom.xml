@@ -2,15 +2,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
 	<groupId>com.mrpehlivan</groupId>
 	<artifactId>SpringBootCRUD</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>SpringBootCRUD</name>
-	<description>Demo project for Spring Boot</description>
-
+	<description>Spring Boot Create, Read, Update and Delete example project.</description>
+	<developers>
+		<developer>
+			<name>Arif Pehlivan</name>
+			<email>m.arifpehlivan@gmail.com</email>
+		</developer>
+	</developers>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -22,6 +26,15 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<hikari.version>2.6.3</hikari.version>
+		<springdata.version>1.11.6.RELEASE</springdata.version>
+		<hibernatecore.version>5.2.6.Final</hibernatecore.version>
+		<hibernateentitymanager.version>5.2.6.Final</hibernateentitymanager.version>
+		<postgresql.version>9.4.1212</postgresql.version>
+		<junit.version>4.12</junit.version>
+		<mockito.version>1.10.19</mockito.version>
+		<sonar.version>2.7.1</sonar.version>
+		<sonar.host.url>http://localhost:9000</sonar.host.url>
 	</properties>
 
 	<dependencies>
@@ -43,27 +56,45 @@
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-jpa</artifactId>
-			<version>1.11.6.RELEASE</version>
+			<version>${springdata.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>5.2.6.Final</version>
+			<version>${hibernatecore.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
-			<version>5.2.6.Final</version>
+			<version>${hibernateentitymanager.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>9.4.1212</version>
+			<version>${postgresql.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.zaxxer</groupId>
 			<artifactId>HikariCP</artifactId>
-			<version>2.6.3</version>
+			<version>${hikari.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>${mockito.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.mojo</groupId>
+			<artifactId>sonar-maven-plugin</artifactId>
+			<version>${sonar.version}</version>
+			<type>maven-plugin</type>
 		</dependency>
 	</dependencies>
 

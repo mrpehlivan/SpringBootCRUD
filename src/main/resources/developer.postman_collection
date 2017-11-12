@@ -21,7 +21,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\" : \"Arif\",\n\t\"lastName\" : \"Pehlivan\",\n\t\"email\" : \"m.arifpehlivan@gmail.com\",\n\t\"skill\" : \"Java\",\n\t\"phoneNumber\" : \"5112223344\"\n\n}"
+					"raw": "{\t\n\t\"name\" : \"Arif\",\n\t\"lastName\": \"Pehlivan\",\n\t\"email\" : \"m.arifpehlivan@asd.com\",\n\t\"phoneNumber\" : \"5112223344\",\n\t\"skill\" : \"Java\"\n}"
 				},
 				"description": "insertDeveloper"
 			},

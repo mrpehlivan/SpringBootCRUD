@@ -26,7 +26,7 @@ public class DeveloperModel {
     @Column(name = "phone_number")
     private String phoneNumber;
 
-    @Column(columnDefinition = "true")
+    @Column(columnDefinition = "boolean default true")
     private boolean active;
 
     public long getId() {

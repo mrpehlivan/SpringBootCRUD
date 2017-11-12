@@ -11,6 +11,20 @@ services:
     volumes:
       - mrpehlivan-db-data:/var/lib/postgresql/data
       - ./initdb:/docker-entrypoint-initdb.d
+  sonarqube:
+    image: sonarqube
+    ports:
+      - 9000:9000
+      - 9092:9092
+    container_name: sonarqube
+  jenkins:
+    image: jenkins:2.60.3
+    privileged: true
+    user: root
+    ports:
+      - 8080:8080
+      - 50000:50000
+    container_name: jenkins
 
 volumes:
   mrpehlivan-db-data:

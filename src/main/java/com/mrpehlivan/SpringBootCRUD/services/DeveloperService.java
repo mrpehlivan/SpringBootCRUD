@@ -21,10 +21,10 @@ public class DeveloperService {
     }
 
     public DeveloperResponse findDeveloperByEmail(String email) {
-        return repository.findFirstByEmail(email).map(developerModel -> new DeveloperResponse(developerModel)).orElse(new DeveloperResponse());
+        return repository.findFirstByEmail(email).map(DeveloperResponse::new).orElse(new DeveloperResponse());
     }
 
-    public void insert(DeveloperRequest request) {
+    public boolean insert(DeveloperRequest request) {
         DeveloperModel model = new DeveloperModel();
         model.setName(request.getName());
         model.setLastName(request.getLastName());
@@ -32,24 +32,25 @@ public class DeveloperService {
         model.setPhoneNumber(request.getPhoneNumber());
         model.setSkill(request.getSkill());
         model.setActive(true);
-        repository.save(model);
+        DeveloperModel save = repository.save(model);
+        return save != null;
     }
 
-    public void delete(String email) {
+    public boolean delete(String email) {
         Optional<DeveloperModel> model = repository.findFirstByEmail(email);
-        model.ifPresent(developerModel -> {
+         return model.map(developerModel -> {
             developerModel.setActive(false);
-            repository.save(developerModel);
-        });
+            return repository.save(developerModel) != null;
+        }).orElse(false);
     }
 
 
-    public void update(DeveloperRequest request) {
+    public boolean update(DeveloperRequest request) {
         Optional<DeveloperModel> model = repository.findFirstByEmail(request.getEmail());
-        model.ifPresent(developerModel -> {
+         return model.map(developerModel -> {
             developerModel.setPhoneNumber(request.getPhoneNumber());
             developerModel.setSkill(request.getSkill());
-            repository.save(developerModel);
-        });
+            return repository.save(developerModel) != null;
+        }).orElse(false);
     }
 }
