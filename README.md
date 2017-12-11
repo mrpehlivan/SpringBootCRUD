@@ -6,7 +6,7 @@ To start docker cd /src/main/resources and execute 'docker-compose up' in this p
 To import postman collection cd /src/main/resources choose developer.postman_collection and import to postman.
 
 
-###GitHub configuration
+### Jenkins GitHub configuration
 
 To do this go to Settings -> Integrations & services. The Jenkins Github plugin should be shown on the list of available services as below.
 
@@ -21,7 +21,7 @@ cat /var/jenkins_home/secrets/initialAdminPassword`
 ```
 
 
-###Sonarqube configuration
+### Sonarqube configuration
 
 Execute 
 
@@ -31,7 +31,7 @@ mvn clean verify sonar:sonar
 
 Go to localhost:9000 and enter the username and password
 
-Username : admin
+Username : admin <br/>
 Password : admin
 
 
